@@ -10,6 +10,7 @@ import { PostAttributes } from '../models/post';
   standalone: true,
   imports: [RouterOutlet, RouterLink, NgFor],
   template: `
+    
 
     <h1>Esta es la lista de posts</h1>
     <ul>
@@ -17,7 +18,6 @@ import { PostAttributes } from '../models/post';
         <a [routerLink]="['/blog', post.slug]"> {{ post.attributes.title }}</a>
       </li>
     </ul>
-    
   `,
 })
 export default class PostListComponent {
