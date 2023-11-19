@@ -1,10 +1,8 @@
 ---
 title: "Aplicando lazy loading a tu app"
 description: "En primer lugar generamos los componentes y módulos que necesitamos para agregar páginas a nuestra app."
-published: true
-cover_image: "https://dev-to-uploads.s3.amazonaws.com/i/d3mir9xyvn0mlmiskv53.png"
-canonical_url: ""
-tags: angular, kikstart, beginner, espanol
+coverImage: "/assets/images/art1.jpg"
+
 ---
 
 ¿Cómo comienza mi aprendizaje de código? Es algo que debí pensar
