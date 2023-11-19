@@ -13,16 +13,13 @@ import { RouterLink, RouterOutlet } from '@angular/router';
         >
           <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
-              <img
-                class="h-8 w-auto"
-                src="/images/icono.svg"
-                alt="icono"
-              />
+              <img class="h-8 w-auto" src="/images/icono.svg" alt="icono" />
             </a>
           </div>
           <div class="flex lg:hidden">
             <button
               type="button"
+              (click)="toggle()"
               class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             >
               <span class="sr-only">Open main menu</span>
@@ -66,8 +63,15 @@ import { RouterLink, RouterOutlet } from '@angular/router';
             >
           </div>
         </nav>
+
         <!-- Mobile menu, show/hide based on menu open state. -->
-        <div class="lg:hidden" role="dialog" aria-modal="true">
+        <div
+          class="lg:hidden"
+          [class.block]="open"
+          [class.hidden]="!open"
+          role="dialog"
+          aria-modal="true"
+        >
           <!-- Background backdrop, show/hide based on slide-over state. -->
           <div class="fixed inset-0 z-50"></div>
           <div
@@ -75,14 +79,11 @@ import { RouterLink, RouterOutlet } from '@angular/router';
           >
             <div class="flex items-center justify-between">
               <a href="/" class="-m-1.5 p-1.5">
-                <img
-                  class="h-8 w-auto"
-                  src="/images/icono.svg"
-                  alt=""
-                />
+                <img class="h-8 w-auto" src="/images/icono.svg" alt="" />
               </a>
               <button
                 type="button"
+                (click)="toggle()"
                 class="-m-2.5 rounded-md p-2.5 text-gray-700"
               >
                 <span class="sr-only">Close menu</span>
@@ -108,21 +109,25 @@ import { RouterLink, RouterOutlet } from '@angular/router';
                   <a
                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     routerLink="/"
+                    (click)="toggle()"
                     >Incio</a
                   >
                   <a
                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     routerLink="/about"
+                    (click)="toggle()"
                     >Sobre mi</a
                   >
                   <a
                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     routerLink="/blog"
+                    (click)="toggle()"
                     >Blog</a
                   >
                   <a
                     class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     routerLink="/contact"
+                    (click)="toggle()"
                     >Contacto</a
                   >
                 </div>
@@ -135,4 +140,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     </div>
   `,
 })
-export class AppComponent {}
+export class AppComponent {
+  open = false;
+  toggle() {
+    this.open = !this.open;
+  }
+}
